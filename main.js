@@ -249,6 +249,18 @@ let WIN = () => {
 }
 
 
+let refresh = () => {Env.nexEpisode};
+let buttonUp = () => {Agent.flying = 1;};
+let buttonUpN = () => {Agent.flying = 1;}
+let buttonH = () => {Agent.TM[0]=1;};
+let buttonN = () => {Agent.TM[0]=-1;};
+let buttonHNN = () => {Agent.TM[0]=0;};
+let buttonJ = () => {Agent.TM[1]=1;};
+let buttonM = () => {Agent.TM[1]=-1;};
+let buttonJMN = () => {Agent.TM[1]=0;};
+
+
+
 
 // EVENTS <<===================================
 document.addEventListener("keydown", (e) => {
@@ -430,6 +442,15 @@ setInterval(() => {
     if (Agent.WM[0] == 1) {
         Agent.legs[0].inRot(1);
     }
+
+    // intentar desplazar para caminar
+    if (Agent.WM[0] == -1 && Agent.legs[0].baseH < 5) {
+        Agent.legs[0].inRot(1);
+        Agent.rotate (1);
+        Agent.move([-1,0],Agent.speed * 0.25);
+        Agent.move([0,1],Agent.speed * 1);
+    }
+
     if (Agent.WM[0] == -1) {
         Agent.legs[0].inRot(-1);
     }
@@ -441,6 +462,12 @@ setInterval(() => {
     }
     if (Agent.WM[2] == 1) {
         Agent.legs[1].inRot(1);
+    }
+    if (Agent.WM[2] == 1 && Agent.legs[1].baseH < 5) {
+        Agent.legs[1].inRot(-1);
+        Agent.rotate (-1);
+        Agent.move([-1,0],Agent.speed * 0.25);
+        Agent.move([0,1],Agent.speed * 1);
     }
     if (Agent.WM[2] == -1) {
         Agent.legs[1].inRot(-1);
