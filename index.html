@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Aprendizaje por Refuerzo</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="wrap">
+    <div class="main" id="env">
+        <!-- aqui se visualiza el ambiente -->
+
+        <div class="agent"  id="agent">
+            <!-- tag para cada extremidad -->
+
+
+            <div class="turb">
+                <!-- turbinas, principalmente feedback visual -->
+                <!-- entrenamiento, left, right, l + R -->
+
+                <div class="tL" id="LT">
+                    <div class="axis"></div>
+                </div>
+                <div class="tR" id="RT">
+                    <div class="axis"></div>
+                </div>
+            </div>
+
+            <div class="core">
+                <!-- centro de masa, calculo de aceleraciones, etc -->
+                <!-- <div id="fV">
+                    <div class="axis"></div>
+                </div> -->
+            </div>
+
+            <div class="legs">
+                <!-- tags de desplazamiento en tierra.. ahhhhgg -->
+                <!-- entrenamiento, ang each articulacion -->
+                <div class="Lleg">
+                    <div class="inL" id="INL">
+                        <div class="B"></div>
+                        <div class="axis"></div>
+                        <div class="outL" id="OUTL">
+                            <div class="B"></div>
+                            <div class="axis"></div>
+                            <div class="F" id="Lbase"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="Rleg">
+                    <div class="inL" id="INR">
+                        <div class="B"></div>
+                        <div class="axis"></div>
+                        <div class="outL" id="OUTR">
+                            <div class="B"></div>
+                            <div class="axis"></div>
+                            <div class="F" id="Rbase"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="floor">
+            <!-- carril principal, los obstaculos emergen de main pero avanzan sobre floor -->
+        </div>
+
+    </div>
+
+    <div class="data">
+        <!-- aqui se visualizan los datos -->
+        <div class="dist" id="bb1">0</div>
+        <div class="dist" id="bb2">0</div>
+        <div class="dist" id="bb3">0</div>
+        <div class="distW" id="ww1">0</div>
+        <div class="reward" id="rwrd">0</div>
+        <div class="epi" id="episode">0</div>
+
+    </div>
+</div>
+
+
+
+
+</body>
+<script src="./main.js"></script>
+</html>

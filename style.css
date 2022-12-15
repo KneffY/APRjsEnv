@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    /* border: 1px solid black; */
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.wrap {
+    width: 2000px;
+    height: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* data visualization */
+.data {
+    width: 200px;
+    height: 700px;
+    border: 2px solid red; 
+    left: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
+    .data div {
+        margin-left: 10px;
+        width: 180px;
+        height: 40px;
+        display: flex;
+        position: relative;
+        margin-top: 50px;
+        border: 2px solid black;
+    }
+
+/* env visualization */
+.main {
+    width: 1500px;
+    height: 1000px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.floor {
+    width: 1400px;
+    height: 40px;
+    background: rgb(0,255,0);
+    bottom: 20px;
+    border: 2px solid black;
+}
+
+.agent {
+    /* collide box */
+    width: 100px;
+    height: 100px;
+    /* background: rgb(255,0,0); */
+    /* border: 1px dashed red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* top: 200px;
+    position: absolute; */
+}
+
+    .axis {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        /* background: black; */
+    }
+
+    .turb {
+        width: 120px;
+        height: 10px;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: blue;
+    }
+        .tL,.tR {
+            width: 60px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: red;
+            box-shadow: 0px -2px 0px 2px blue;
+        }
+        .tL {left: -30px;} 
+        .tR {right: -30px;}
+        
+
+    .core{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        /* #fV {
+            width: 150px;
+            height: 1px;
+            border: 1px solid red;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            left: 40px;
+        } */
+
+    .legs {
+        width: 160px;
+        height: 80px;
+        bottom: -20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px dashed red; */
+    }
+        .Lleg, .Rleg {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            /* border: 1px dashed red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inL, .outL {
+            width: 120px;
+            height: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* .inL {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        } */
+        .Lleg {left: 40px;}
+        .Rleg {right: 40px;}
+        .Lleg .inL .outL {
+            left: -60px;
+            transform: rotate(-45deg);
+        }
+        .Rleg .inL .outL {
+            right: -60px;
+            transform: rotate(45deg);
+        }
+        .B {
+            width: 60px;
+            height: 10px;
+            background: blue;
+        }
+        .Lleg .B {left: 0px;}
+        .Rleg .B {right: 0px;}
+        .F {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: red;
+        }
+        .Lleg .F {left: -7px;}
+        .Rleg .F {right: -7px;}
+
+/* obstaculo */
+.block {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 2px black;
+    background: red;
+}
+.gol {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 2px black;
+    background: green;
+}
