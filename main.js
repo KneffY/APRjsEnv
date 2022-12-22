@@ -262,6 +262,19 @@ let buttonJ = () => {Agent.TM[1]=1;};
 let buttonM = () => {Agent.TM[1]=-1;};
 let buttonJMN = () => {Agent.TM[1]=0;};
 
+let buttonLIL = () => {Agent.WM[0] = 1;};
+let buttonLIR = () => {Agent.WM[0] = -1;};
+let buttonLIN = () => {Agent.WM[0] = 0;};
+let buttonLOL = () => {Agent.WM[1] = 1;};
+let buttonLOR = () => {Agent.WM[1] = -1;};
+let buttonLON = () => {Agent.WM[1] = 0;};
+let buttonRIL = () => {Agent.WM[2] = 1;};
+let buttonRIR = () => {Agent.WM[2] = -1;};
+let buttonRIN = () => {Agent.WM[2] = 0;};
+let buttonROL = () => {Agent.WM[3] = 1;};
+let buttonROR = () => {Agent.WM[3] = -1;};
+let buttonRON = () => {Agent.WM[3] = 0;};
+
 
 
 
