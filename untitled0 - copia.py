@@ -55,23 +55,27 @@ def observation_space():
     alt3 = driver.find_element(By.ID, 'a3').text
     #distancias al objetivo
     distw = driver.find_element(By.ID, 'ww1').text
-    obs = [dist1, dist2, dist3, alt1, alt2, alt3, distw]
+    #posicion agente
+    pos_x = driver.find_element(By.ID, 'pos1').text
+    pos_y = driver.find_element(By.ID, 'pos2').text
+
+    obs = [dist1, dist2, dist3, alt1, alt2, alt3, distw, pos_x, pos_y]
     return obs
 
 #espacio de acciones caminante
 def action_space1():
-    act1 = driver.find_element(By.ID, 'buttonLIL')
-    act2 = driver.find_element(By.ID, 'buttonLIR')
-    act3 = driver.find_element(By.ID, 'buttonLIN')
-    act4 = driver.find_element(By.ID, 'buttonLOL')
-    act5 = driver.find_element(By.ID, 'buttonLOR')
-    act6 = driver.find_element(By.ID, 'buttonLON')
-    act7 = driver.find_element(By.ID, 'buttonRIL')
-    act8 = driver.find_element(By.ID, 'buttonRIR')
-    act9 = driver.find_element(By.ID, 'buttonRIN')
-    act10 = driver.find_element(By.ID, 'buttonROL')
-    act11 = driver.find_element(By.ID, 'buttonROR')
-    act12 = driver.find_element(By.ID, 'buttonRON')
+    act1 = driver.find_element(By.ID, 'btn1')
+    act2 = driver.find_element(By.ID, 'btn2')
+    act3 = driver.find_element(By.ID, 'btn3')
+    act4 = driver.find_element(By.ID, 'btn4')
+    act5 = driver.find_element(By.ID, 'btn5')
+    act6 = driver.find_element(By.ID, 'btn6')
+    act7 = driver.find_element(By.ID, 'btn7')
+    act8 = driver.find_element(By.ID, 'btn8')
+    act9 = driver.find_element(By.ID, 'btn9')
+    act10 = driver.find_element(By.ID, 'btn10')
+    act11 = driver.find_element(By.ID, 'btn11')
+    act12 = driver.find_element(By.ID, 'btn12')
     acts = [act1,act2,act3,act4,act5,act6,act7,act8,act9,act10,act11,act12]
     return acts
 
@@ -80,24 +84,16 @@ actions1 = action_space1()
 
 #espacio de acciones volador
 def action_space2():
-    act1 = driver.find_element(By.ID, 'btn1').text
-    act2 = driver.find_element(By.ID, 'btn2').text
-    act3 = driver.find_element(By.ID, 'btn3').text
-    act4 = driver.find_element(By.ID, 'btn4').text
-    act5 = driver.find_element(By.ID, 'btn5').text
-    act6 = driver.find_element(By.ID, 'btn6').text
-    act7 = driver.find_element(By.ID, 'btn7').text
-    act8 = driver.find_element(By.ID, 'btn8').text
+    act1 = driver.find_element(By.ID, 'btn13').text
+    act2 = driver.find_element(By.ID, 'btn14').text
+    act3 = driver.find_element(By.ID, 'btn15').text
+    act4 = driver.find_element(By.ID, 'btn16').text
+    act5 = driver.find_element(By.ID, 'btn17').text
+    act6 = driver.find_element(By.ID, 'btn18').text
+    act7 = driver.find_element(By.ID, 'btn19').text
+    act8 = driver.find_element(By.ID, 'btn20').text
     acts = [act1,act2,act3,act4,act5,act6,act7,act8]
     return acts
-
-#estados
-def state():
-    pos_x = driver.find_element(By.ID, 'pos1').text
-    pos_y = driver.find_element(By.ID, 'pos2').text
-    v = driver.find_element(By.ID, 'velocity').text
-    state = [pos_x,pos_y,v]
-    return state
 
 def reward():
     rwd = driver.find_element(By.ID, 'rwrd').text
@@ -157,10 +153,10 @@ class ReplayBuffer1():
         self.buffer_counter = 0
         self.n_episodes = 0
         
-        self.states = np.zeros((self.buffer_capacity, observation_space().shape[0]))
-        self.actions = np.zeros((self.buffer_capacity, action_space1().shape[0]))
+        self.states = np.zeros((self.buffer_capacity, observation_space().shape))
+        self.actions = np.zeros((self.buffer_capacity, action_space1().shape))
         self.rewards = np.zeros((self.buffer_capacity))
-        self.next_states = np.zeros((self.buffer_capacity, observation_space().shape[0]))
+        self.next_states = np.zeros((self.buffer_capacity, observation_space().shape))
         self.dones = np.zeros((self.buffer_capacity), dtype=bool)
         
 
@@ -411,7 +407,7 @@ for episode in range(MAX_EPISODES+1):
     ep_reward = 0
     done = 0
     actual_episode = episode
-    states = state()
+    states = observation()
     while done != 1:
         action = Agent.get_action(states)
         cont=0
@@ -424,7 +420,7 @@ for episode in range(MAX_EPISODES+1):
                 wait.until(ec.visibility_of(act_btn))
                 act_btn.click()
             cont=cont+1
-        new_states = state()
+        new_states = observation()
         reward = reward()
         done = done()
         ep_reward += reward
