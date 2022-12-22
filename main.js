@@ -515,7 +515,13 @@ setInterval(() => {
             Env.mr = 1;
             Env.R = -5;
         }
+        
     })
+
+    if (Agent.x < 100 || Agent.x > 1450 || Agent.y < 40 || agent.y > 820) {
+        Env.mr = 1;
+        Env.R = -5;
+    }
 
     // win ??
 
