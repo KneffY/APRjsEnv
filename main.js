@@ -35,6 +35,8 @@ let UI = {
     a1: document.getElementById ("a1"),
     a2: document.getElementById ("a2"),
     a3: document.getElementById ("a3"),
+    px: document.getElementById ("px"),
+    py: document.getElementById ("py"),
 }
 
 let Block = class {
@@ -455,6 +457,8 @@ setInterval(() => {
     UI.a1.innerText = `${Env.blocks[0].XY[1]}`;
     UI.a2.innerText = `${Env.blocks[1].XY[1]}`;
     UI.a3.innerText = `${Env.blocks[2].XY[1]}`;
+    UI.px.innerText = `${Agent.x}`;
+    UI.py.innerText = `${Agent.y}`;
 
     // TGO Q MEJORAR... EL CONTROL DEL MOVIMIENTO D:
     // L E G S :D

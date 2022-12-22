@@ -56,26 +56,26 @@ def observation_space():
     #distancias al objetivo
     distw = driver.find_element(By.ID, 'ww1').text
     #posicion agente
-    pos_x = driver.find_element(By.ID, 'pos1').text
-    pos_y = driver.find_element(By.ID, 'pos2').text
+    pos_x = driver.find_element(By.ID, 'px').text
+    pos_y = driver.find_element(By.ID, 'py').text
 
     obs = [dist1, dist2, dist3, alt1, alt2, alt3, distw, pos_x, pos_y]
     return obs
 
 #espacio de acciones caminante
 def action_space1():
-    act1 = driver.find_element(By.ID, 'btn1')
-    act2 = driver.find_element(By.ID, 'btn2')
-    act3 = driver.find_element(By.ID, 'btn3')
-    act4 = driver.find_element(By.ID, 'btn4')
-    act5 = driver.find_element(By.ID, 'btn5')
-    act6 = driver.find_element(By.ID, 'btn6')
-    act7 = driver.find_element(By.ID, 'btn7')
-    act8 = driver.find_element(By.ID, 'btn8')
-    act9 = driver.find_element(By.ID, 'btn9')
-    act10 = driver.find_element(By.ID, 'btn10')
-    act11 = driver.find_element(By.ID, 'btn11')
-    act12 = driver.find_element(By.ID, 'btn12')
+    act1 = driver.find_element(By.ID, 'buttonLIL')
+    act2 = driver.find_element(By.ID, 'buttonLIR')
+    act3 = driver.find_element(By.ID, 'buttonLIN')
+    act4 = driver.find_element(By.ID, 'buttonLOL')
+    act5 = driver.find_element(By.ID, 'buttonLOR')
+    act6 = driver.find_element(By.ID, 'buttonLON')
+    act7 = driver.find_element(By.ID, 'buttonRIL')
+    act8 = driver.find_element(By.ID, 'buttonRIR')
+    act9 = driver.find_element(By.ID, 'buttonRIN')
+    act10 = driver.find_element(By.ID, 'buttonROL')
+    act11 = driver.find_element(By.ID, 'buttonROR')
+    act12 = driver.find_element(By.ID, 'buttonRON')
     acts = [act1,act2,act3,act4,act5,act6,act7,act8,act9,act10,act11,act12]
     return acts
 
@@ -84,14 +84,14 @@ actions1 = action_space1()
 
 #espacio de acciones volador
 def action_space2():
-    act1 = driver.find_element(By.ID, 'btn13').text
-    act2 = driver.find_element(By.ID, 'btn14').text
-    act3 = driver.find_element(By.ID, 'btn15').text
-    act4 = driver.find_element(By.ID, 'btn16').text
-    act5 = driver.find_element(By.ID, 'btn17').text
-    act6 = driver.find_element(By.ID, 'btn18').text
-    act7 = driver.find_element(By.ID, 'btn19').text
-    act8 = driver.find_element(By.ID, 'btn20').text
+    act1 = driver.find_element(By.ID, 'buttonUp').text
+    act2 = driver.find_element(By.ID, 'buttonUpN').text
+    act3 = driver.find_element(By.ID, 'buttonH').text
+    act4 = driver.find_element(By.ID, 'buttonN').text
+    act5 = driver.find_element(By.ID, 'buttonHNN').text
+    act6 = driver.find_element(By.ID, 'buttonJ').text
+    act7 = driver.find_element(By.ID, 'buttonM').text
+    act8 = driver.find_element(By.ID, 'buttonJMN').text
     acts = [act1,act2,act3,act4,act5,act6,act7,act8]
     return acts
 
