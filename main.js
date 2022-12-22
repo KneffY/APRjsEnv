@@ -32,6 +32,9 @@ let UI = {
     ww1: document.getElementById ("ww1"),
     rwrd: document.getElementById ("rwrd"),
     episode: document.getElementById ("episode"),
+    a1: document.getElementById ("a1"),
+    a2: document.getElementById ("a2"),
+    a3: document.getElementById ("a3"),
 }
 
 let Block = class {
@@ -249,9 +252,9 @@ let WIN = () => {
 }
 
 
-let refresh = () => {Env.nexEpisode};
+let refresh = () => {Env.nexEpisode()};
 let buttonUp = () => {Agent.flying = 1;};
-let buttonUpN = () => {Agent.flying = 1;}
+let buttonUpN = () => {Agent.flying = 0;}
 let buttonH = () => {Agent.TM[0]=1;};
 let buttonN = () => {Agent.TM[0]=-1;};
 let buttonHNN = () => {Agent.TM[0]=0;};
@@ -436,6 +439,9 @@ setInterval(() => {
     UI.ww1.innerText = `${Math.sqrt ((Agent.x-Gol.XY[0])**2 + (Agent.y-Gol.XY[1])**2)}`;
     UI.rwrd.innerText = `${Env.R}`;
     UI.episode.innerText = `${Env.mr}`;
+    UI.a1.innerText = `${Env.blocks[0].XY[1]}`;
+    UI.a2.innerText = `${Env.blocks[1].XY[1]}`;
+    UI.a3.innerText = `${Env.blocks[2].XY[1]}`;
 
     // TGO Q MEJORAR... EL CONTROL DEL MOVIMIENTO D:
     // L E G S :D
